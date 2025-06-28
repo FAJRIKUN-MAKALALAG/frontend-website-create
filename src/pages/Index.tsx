@@ -1,12 +1,11 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom'; 
-import { PromptForm } from '@/components/PromptForm';
+import { Header } from '@/components/Header';
+import { HeroSection } from '@/components/HeroSection';
+import { FeatureCards } from '@/components/FeatureCards';
+import { FormSection } from '@/components/FormSection';
 import { ResultDisplay } from '@/components/ResultDisplay';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { Sparkles, User, LogIn } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -77,102 +76,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Header with Navigation */}
-      <header className="border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-violet-600 to-purple-600 rounded-xl flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900 dark:text-white">AI Website Generator</h1>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Generate website dengan AI</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <ThemeToggle />
-              <Link to="/login">
-                <Button variant="ghost" size="sm" className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400">
-                  <LogIn className="w-4 h-4 mr-2" />
-                  Masuk
-                </Button>
-              </Link>
-              <Link to="/register">
-                <Button size="sm" className="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700">
-                  <User className="w-4 h-4 mr-2" />
-                  Daftar
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <div className="container mx-auto px-4 py-8">
         {!isGenerating && !result && (
           <div className="max-w-4xl mx-auto">
-            {/* Hero Section */}
-            <div className="text-center mb-12">
-              <div className="flex justify-center mb-6">
-                <div className="w-20 h-20 bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl">
-                  <Sparkles className="w-10 h-10 text-white" />
-                </div>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
-                AI Website Generator
-              </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-                Deskripsikan website impian Anda dan dapatkan kode HTML + CSS siap pakai dalam hitungan detik! 
-                Powered by Artificial Intelligence terdepan.
-              </p>
-            </div>
-
-            {/* Feature Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-6 border border-violet-100 dark:border-gray-700 shadow-lg">
-                <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-lg flex items-center justify-center mb-4">
-                  <Sparkles className="w-6 h-6 text-violet-600" />
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">AI-Powered</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Teknologi AI canggih mengubah deskripsi Anda menjadi kode website yang siap pakai</p>
-              </div>
-              
-              <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-6 border border-purple-100 dark:border-gray-700 shadow-lg">
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 bg-purple-600 rounded"></div>
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Instant Preview</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Lihat langsung hasil website Anda dengan preview real-time</p>
-              </div>
-              
-              <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-6 border border-indigo-100 dark:border-gray-700 shadow-lg">
-                <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 border-2 border-indigo-600 rounded border-dashed"></div>
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Download ZIP</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Unduh file website lengkap dalam format ZIP siap upload ke hosting</p>
-              </div>
-            </div>
-
-            {/* Form Section */}
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-violet-100 dark:border-gray-700 shadow-xl p-8">
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                  🚀 Generate Website Anda
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Jelaskan website yang ingin Anda buat dengan detail. Semakin spesifik, semakin baik hasilnya!
-                </p>
-              </div>
-              
-              <PromptForm 
-                onSubmit={handleGenerate} 
-                isLoading={isGenerating} 
-                error={error}
-              />
-            </div>
+            <HeroSection />
+            <FeatureCards />
+            <FormSection 
+              onGenerate={handleGenerate}
+              isGenerating={isGenerating}
+              error={error}
+            />
           </div>
         )}
 
