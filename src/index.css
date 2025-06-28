@@ -128,3 +128,33 @@ All colors MUST be HSL.
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground));
 }
+
+/* Golden glowing icons in dark mode */
+.dark svg {
+  color: #fbbf24;
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6)) drop-shadow(0 0 16px rgba(251, 191, 36, 0.3));
+  transition: all 0.3s ease;
+}
+
+.dark svg:hover {
+  color: #f59e0b;
+  filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.8)) drop-shadow(0 0 24px rgba(245, 158, 11, 0.4));
+  transform: scale(1.05);
+}
+
+/* Enhanced glow for specific icon containers */
+.dark .w-10.h-10.bg-gradient-to-r,
+.dark .w-12.h-12.bg-violet-100,
+.dark .w-12.h-12.bg-purple-100,
+.dark .w-12.h-12.bg-indigo-100,
+.dark .w-20.h-20.bg-gradient-to-r {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%) !important;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4), 0 0 40px rgba(251, 191, 36, 0.2);
+}
+
+.dark .w-10.h-10.bg-gradient-to-r svg,
+.dark .w-12.h-12 svg,
+.dark .w-20.h-20.bg-gradient-to-r svg {
+  color: #1f2937 !important;
+  filter: none;
+}
